@@ -284,7 +284,7 @@
             </svg>
           </button>
 
-          <button id="openEditorBtn" type="button"
+          <button id="openEditorBtn" type="button" hidden style="display: none;"
             class="hidden items-center gap-1.5 px-2.5 sm:px-3.5 py-2 min-h-[38px] rounded-xl text-xs sm:text-sm font-semibold bg-sky-500/15 hover:bg-sky-500/25 text-sky-600 dark:text-sky-300 border border-sky-500/30 transition-all">
             <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M12 20h9" />
@@ -1340,6 +1340,8 @@
 
     function syncOwnerUI() {
       const active = isOwnerMode();
+      openEditorBtn.hidden = !active;
+      openEditorBtn.style.display = active ? "inline-flex" : "none";
       openEditorBtn.classList.toggle("hidden", !active);
       openEditorBtn.classList.toggle("inline-flex", active);
     }
