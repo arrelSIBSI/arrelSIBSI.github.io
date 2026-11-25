@@ -1,0 +1,18 @@
+{
+  "name": "Farrelio Akbar — Portofolio & Profil Profesional",
+  "short_name": "Farrelio Portfolio",
+  "description": "Portofolio resmi Farrelio Akbar — Mahasiswa S1 Sistem Informasi Universitas Harkat Negeri, Mitra BPS Sensus Ekonomi 2026, Data Entry, Administrasi & Operasional Lapangan.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#07090f",
+  "theme_color": "#0ea5e9",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
