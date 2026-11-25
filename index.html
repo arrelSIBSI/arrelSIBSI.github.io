@@ -250,7 +250,7 @@
     <nav id="mainNav"
       class="max-w-6xl mx-auto glass-card rounded-2xl px-3 sm:px-6 py-2.5 sm:py-3 shadow-lg shadow-black/10 dark:shadow-black/30">
       <div class="flex items-center justify-between gap-2">
-        <a href="#top" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+        <a href="#top" id="brandLogo" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
           <div
             class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-sky-500 to-violet-600 flex items-center justify-center text-white font-mono font-bold text-xs sm:text-sm shadow-md shadow-sky-500/25 group-hover:scale-105 transition-transform shrink-0">
             FA
@@ -285,7 +285,7 @@
           </button>
 
           <button id="openEditorBtn" type="button"
-            class="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 min-h-[38px] rounded-xl text-xs sm:text-sm font-semibold bg-sky-500/15 hover:bg-sky-500/25 text-sky-600 dark:text-sky-300 border border-sky-500/30 transition-all">
+            class="hidden items-center gap-1.5 px-2.5 sm:px-3.5 py-2 min-h-[38px] rounded-xl text-xs sm:text-sm font-semibold bg-sky-500/15 hover:bg-sky-500/25 text-sky-600 dark:text-sky-300 border border-sky-500/30 transition-all">
             <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M12 20h9" />
               <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
@@ -749,10 +749,14 @@
         </button>
       </div>
 
-      <div class="border-t border-slate-200 dark:border-slate-800 pt-4">
+      <div class="border-t border-slate-200 dark:border-slate-800 pt-4 space-y-2.5">
         <button id="resetDataBtn" type="button"
           class="w-full py-2.5 rounded-xl border border-rose-500/40 text-rose-500 hover:bg-rose-500/10 text-xs font-mono">
           Reset ke Data Awal CV
+        </button>
+        <button id="exitOwnerBtn" type="button"
+          class="w-full py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-mono">
+          Keluar dari Mode Pemilik
         </button>
       </div>
     </aside>
@@ -1111,7 +1115,7 @@
                 </div>
                 <div class="min-w-0">
                   <p class="text-xs font-semibold text-slate-800 dark:text-slate-200">Tercatat pada CV Resmi</p>
-                  <p class="text-[11px] text-slate-500 dark:text-slate-400">Klik untuk melihat detail atau melampirkan foto sertifikat asli</p>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400">Klik untuk melihat detail sertifikat</p>
                 </div>
               </div>
             `}
@@ -1129,7 +1133,7 @@
           </div>
 
           <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between text-xs font-semibold text-sky-500 dark:text-sky-400 relative z-10 w-full">
-            <span>${cert.imageData ? "Perbesar Sertifikat Asli" : "Lihat Detail & Lampirkan Foto Asli"}</span>
+            <span>${cert.imageData ? "Perbesar Sertifikat Asli" : "Lihat Detail Sertifikat"}</span>
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </div>
         </button>
@@ -1167,18 +1171,20 @@
             </div>
           `}
 
-          <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-200/70 dark:border-slate-800">
-            <label class="cursor-pointer inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 text-sky-600 dark:text-sky-300 border border-sky-500/30 text-xs font-semibold transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-              <span>${cert.imageData ? "Ganti Foto Sertifikat Asli" : "Unggah Foto Sertifikat Asli"}</span>
-              <input type="file" accept="image/*" class="hidden" onchange="uploadCertImage(event, ${index})" />
-            </label>
-            ${cert.imageData && !["kmsi-2026", "karate-yot", "bps-se2026"].includes(cert.id) ? `
-              <button type="button" onclick="removeCertImage(${index})" class="px-3 py-2 rounded-xl text-xs font-mono text-rose-500 hover:bg-rose-500/10">
-                Hapus Foto Lampiran
-              </button>
-            ` : ""}
-          </div>
+          ${isOwnerMode() ? `
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-200/70 dark:border-slate-800">
+              <label class="cursor-pointer inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 text-sky-600 dark:text-sky-300 border border-sky-500/30 text-xs font-semibold transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span>${cert.imageData ? "Ganti Foto Sertifikat Asli" : "Unggah Foto Sertifikat Asli"}</span>
+                <input type="file" accept="image/*" class="hidden" onchange="uploadCertImage(event, ${index})" />
+              </label>
+              ${cert.imageData && !["kmsi-2026", "karate-yot", "bps-se2026"].includes(cert.id) ? `
+                <button type="button" onclick="removeCertImage(${index})" class="px-3 py-2 rounded-xl text-xs font-mono text-rose-500 hover:bg-rose-500/10">
+                  Hapus Foto Lampiran
+                </button>
+              ` : ""}
+            </div>
+          ` : ""}
         </div>
       `;
 
@@ -1188,6 +1194,7 @@
     };
 
     window.uploadCertImage = function (event, index) {
+      if (!isOwnerMode()) return;
       const file = event.target.files[0];
       if (!file) return;
       const reader = new FileReader();
@@ -1203,6 +1210,7 @@
     };
 
     window.removeCertImage = function (index) {
+      if (!isOwnerMode()) return;
       state.certificates[index].imageData = null;
       saveState();
       renderCertificates();
@@ -1303,9 +1311,112 @@
       } catch (e) {}
     });
 
+    // Owner-Only Mode (Hidden from public visitors)
+    const OWNER_SESSION_KEY = "farrelio_owner_session";
+    const OWNER_PIN_HASH = "1cf6fb2d4f10be";
+    const openEditorBtn = document.getElementById("openEditorBtn");
+
+    function hashPin(input) {
+      const salted = "fa-porto-2026::" + String(input);
+      let h1 = 0xdeadbeef ^ salted.length;
+      let h2 = 0x41c6ce57 ^ salted.length;
+      for (let i = 0; i < salted.length; i++) {
+        const ch = salted.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+      }
+      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+      return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(16);
+    }
+
+    function isOwnerMode() {
+      try {
+        return sessionStorage.getItem(OWNER_SESSION_KEY) === "1";
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function syncOwnerUI() {
+      const active = isOwnerMode();
+      openEditorBtn.classList.toggle("hidden", !active);
+      openEditorBtn.classList.toggle("inline-flex", active);
+    }
+
+    function requestOwnerUnlock() {
+      if (isOwnerMode()) {
+        openEditorBtn.click();
+        return;
+      }
+      const pin = window.prompt("Masukkan PIN Pemilik untuk mengaktifkan Mode Edit:");
+      if (pin === null) return;
+      if (hashPin(pin.trim()) === OWNER_PIN_HASH) {
+        try {
+          sessionStorage.setItem(OWNER_SESSION_KEY, "1");
+        } catch (e) {}
+        syncOwnerUI();
+        showToast("Mode Pemilik aktif! Tombol Edit Data ditampilkan.");
+      } else {
+        showToast("PIN salah. Mode Pemilik tidak diaktifkan.");
+      }
+    }
+
+    function exitOwnerMode() {
+      try {
+        sessionStorage.removeItem(OWNER_SESSION_KEY);
+      } catch (e) {}
+      closeDrawer();
+      syncOwnerUI();
+      showToast("Keluar dari Mode Pemilik.");
+    }
+
+    // Trigger 1: URL ?owner=1 atau ?admin=1
+    (function checkOwnerQueryParam() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("owner") === "1" || params.get("admin") === "1") {
+          params.delete("owner");
+          params.delete("admin");
+          const cleanUrl = window.location.pathname + (params.toString() ? "?" + params.toString() : "") + window.location.hash;
+          window.history.replaceState({}, "", cleanUrl);
+          setTimeout(requestOwnerUnlock, 150);
+        }
+      } catch (e) {}
+    })();
+
+    // Trigger 2: Ketuk logo FA 5x cepat (HP & Laptop)
+    let logoTapCount = 0;
+    let logoTapTimer = null;
+    const brandLogo = document.getElementById("brandLogo");
+    if (brandLogo) {
+      brandLogo.addEventListener("click", (e) => {
+        logoTapCount += 1;
+        clearTimeout(logoTapTimer);
+        if (logoTapCount >= 5) {
+          e.preventDefault();
+          logoTapCount = 0;
+          requestOwnerUnlock();
+        } else {
+          logoTapTimer = setTimeout(() => {
+            logoTapCount = 0;
+          }, 2000);
+        }
+      });
+    }
+
+    // Trigger 3: Shortcut keyboard Ctrl + Shift + E (Laptop)
+    document.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "e") {
+        e.preventDefault();
+        requestOwnerUnlock();
+      }
+    });
+
     // Slide-Over Editor Logic
     const drawer = document.getElementById("editorDrawer");
-    document.getElementById("openEditorBtn").addEventListener("click", () => {
+    openEditorBtn.addEventListener("click", () => {
+      if (!isOwnerMode()) return;
       closeMobileMenu();
       document.getElementById("editName").value = state.name;
       document.getElementById("editStatus").value = state.status;
@@ -1324,6 +1435,7 @@
 
     document.getElementById("closeEditorBtn").addEventListener("click", closeDrawer);
     document.getElementById("editorBackdrop").addEventListener("click", closeDrawer);
+    document.getElementById("exitOwnerBtn").addEventListener("click", exitOwnerMode);
 
     // Close modals with Escape key
     document.addEventListener("keydown", e => {
@@ -1335,6 +1447,7 @@
     });
 
     document.getElementById("saveProfileBtn").addEventListener("click", () => {
+      if (!isOwnerMode()) return;
       state.name = document.getElementById("editName").value.trim() || state.name;
       state.status = document.getElementById("editStatus").value.trim() || state.status;
       state.bio = document.getElementById("editBio").value.trim() || state.bio;
@@ -1349,6 +1462,7 @@
     });
 
     document.getElementById("addExpBtn").addEventListener("click", () => {
+      if (!isOwnerMode()) return;
       const role = document.getElementById("newExpRole").value.trim();
       const org = document.getElementById("newExpOrg").value.trim();
       const period = document.getElementById("newExpPeriod").value.trim() || "2026";
@@ -1377,6 +1491,7 @@
     });
 
     document.getElementById("resetDataBtn").addEventListener("click", () => {
+      if (!isOwnerMode()) return;
       state = cloneData(DEFAULT_DATA);
       saveState();
       renderProfile();
@@ -1400,6 +1515,7 @@
     }
 
     // Initial Render
+    syncOwnerUI();
     renderProfile();
     renderSkills();
     renderExperiences();
