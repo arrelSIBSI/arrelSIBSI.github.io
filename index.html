@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Farrelio Akbar — Portofolio & Profil Profesional</title>
+  <meta name="description"
+    content="Portofolio resmi Farrelio Akbar — Mahasiswa S1 Sistem Informasi Universitas Harkat Negeri, Mitra BPS Sensus Ekonomi 2026, Data Entry, Administrasi & Operasional Lapangan." />
+  <meta name="theme-color" content="#07090f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Farrelio Portfolio" />
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:title" content="Farrelio Akbar — Portofolio & Profil Profesional" />
+  <meta property="og:description"
+    content="Mahasiswa S1 Sistem Informasi Universitas Harkat Negeri, Mitra BPS Sensus Ekonomi 2026, Data Entry, Administrasi & Operasional Lapangan." />
+
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="manifest" href="./manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    // Terapkan tema tersimpan sebelum render untuk menghindari kedipan layar
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem("farrelio_theme");
+        if (savedTheme === "light") {
+          document.documentElement.classList.remove("dark");
+        } else if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            },
+            accent: {
+              400: '#a78bfa',
+              500: '#8b5cf6',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg-primary: #07090f;
+      --card-bg: rgba(15, 23, 42, 0.62);
+      --card-border: rgba(148, 163, 184, 0.14);
+      --spotlight-color: rgba(56, 189, 248, 0.14);
+    }
+
+    html:not(.dark) {
+      --bg-primary: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(15, 23, 42, 0.1);
+      --spotlight-color: rgba(14, 165, 233, 0.12);
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+      overflow-x: clip;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      transition: background-color 0.35s ease, color 0.35s ease;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    section[id] {
+      scroll-margin-top: 6rem;
+    }
+
+    .bg-grid {
+      background-size: 42px 42px;
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    }
+
+    html:not(.dark) .bg-grid {
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.38);
+    }
+
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--spotlight-color), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .spotlight-card:hover::before {
+        opacity: 1;
+      }
+    }
+
+    .justify-clean {
+      text-align: left;
+    }
+
+    @media (min-width: 640px) {
+      .justify-clean {
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+      }
+    }
+
+    @keyframes floatSlow {
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(24px, -18px) scale(1.06);
+      }
+    }
+
+    .animate-blob {
+      animation: floatSlow 12s ease-in-out infinite;
+    }
+
+    .animate-blob-delay {
+      animation: floatSlow 15s ease-in-out infinite reverse;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cursor-blink {
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-blob,
+      .animate-blob-delay {
+        animation: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.25);
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.5);
+    }
+  </style>
+</head>
+
+<body
+  class="text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-sky-500/30 selection:text-sky-200 bg-grid">
+
+  <!-- Ambient Background Glow -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10" aria-hidden="true">
+    <div
+      class="absolute -top-32 -left-24 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-sky-500/15 dark:bg-sky-500/15 blur-[100px] sm:blur-[120px] animate-blob">
+    </div>
+    <div
+      class="absolute top-1/3 -right-24 w-80 h-80 sm:w-[28rem] sm:h-[28rem] rounded-full bg-violet-500/15 dark:bg-violet-500/15 blur-[110px] sm:blur-[130px] animate-blob-delay">
+    </div>
+    <div class="absolute -bottom-32 left-1/3 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-emerald-500/10 blur-[100px] sm:blur-[120px] animate-blob"></div>
+  </div>
+
+  <!-- Floating Glass Navbar -->
+  <header class="fixed top-3 sm:top-4 inset-x-0 z-40 px-3 sm:px-4">
+    <nav id="mainNav"
+      class="max-w-6xl mx-auto glass-card rounded-2xl px-3 sm:px-6 py-2.5 sm:py-3 shadow-lg shadow-black/10 dark:shadow-black/30">
+      <div class="flex items-center justify-between gap-2">
+        <a href="#top" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+          <div
+            class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-sky-500 to-violet-600 flex items-center justify-center text-white font-mono font-bold text-xs sm:text-sm shadow-md shadow-sky-500/25 group-hover:scale-105 transition-transform shrink-0">
+            FA
+          </div>
+          <span id="navBrand"
+            class="font-mono font-semibold text-xs sm:text-base tracking-tight text-slate-900 dark:text-white truncate">farrelio<span
+              class="text-sky-400">.portfolio</span></span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <a href="#tentang" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Tentang</a>
+          <a href="#sertifikat" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Sertifikat &
+            Prestasi</a>
+          <a href="#keahlian" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Keahlian</a>
+          <a href="#pengalaman" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Pengalaman</a>
+          <a href="#kontak" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">Kontak</a>
+        </div>
+
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <button id="themeToggle" type="button" aria-label="Ganti Tema"
+            class="p-2 min-w-[38px] min-h-[38px] flex items-center justify-center rounded-xl border border-slate-200/70 dark:border-slate-700/70 hover:border-sky-400/60 text-slate-700 dark:text-slate-200 transition-colors">
+            <svg id="sunIcon" class="w-4 h-4 hidden dark:block text-amber-300" fill="none" stroke="currentColor"
+              stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+            <svg id="moonIcon" class="w-4 h-4 block dark:hidden text-slate-700" fill="none" stroke="currentColor"
+              stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+
+          <button id="openEditorBtn" type="button"
+            class="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 min-h-[38px] rounded-xl text-xs sm:text-sm font-semibold bg-sky-500/15 hover:bg-sky-500/25 text-sky-600 dark:text-sky-300 border border-sky-500/30 transition-all">
+            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+            <span>Edit<span class="hidden sm:inline"> Data</span></span>
+          </button>
+
+          <button id="mobileMenuBtn" type="button" aria-label="Menu Navigasi" aria-expanded="false" aria-controls="mobileMenu"
+            class="md:hidden p-2 min-w-[38px] min-h-[38px] flex items-center justify-center rounded-xl border border-slate-200/70 dark:border-slate-700/70 text-slate-700 dark:text-slate-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div id="mobileMenu"
+        class="hidden md:hidden pt-3 mt-3 border-t border-slate-200/60 dark:border-slate-800 grid grid-cols-2 gap-2 text-xs font-medium text-slate-700 dark:text-slate-200">
+        <a href="#tentang"
+          class="mobile-nav-link px-3 py-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 text-center active:scale-[0.98] transition-transform">Tentang</a>
+        <a href="#sertifikat"
+          class="mobile-nav-link px-3 py-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 text-center active:scale-[0.98] transition-transform">Sertifikat & Prestasi</a>
+        <a href="#keahlian"
+          class="mobile-nav-link px-3 py-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 text-center active:scale-[0.98] transition-transform">Keahlian</a>
+        <a href="#pengalaman"
+          class="mobile-nav-link px-3 py-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 text-center active:scale-[0.98] transition-transform">Pengalaman</a>
+        <a href="#kontak"
+          class="mobile-nav-link col-span-2 px-3 py-2.5 rounded-xl bg-sky-500/15 text-sky-600 dark:text-sky-300 border border-sky-500/25 text-center font-semibold active:scale-[0.98] transition-transform">Kontak & WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top" class="pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6 max-w-6xl mx-auto space-y-16 sm:space-y-24">
+
+    <!-- HERO SECTION -->
+    <section class="pt-2 sm:pt-8 reveal visible">
+      <div class="max-w-4xl space-y-5 sm:space-y-6">
+        <div
+          class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-card text-xs font-medium text-emerald-600 dark:text-emerald-300 border-emerald-500/30 max-w-full">
+          <span class="relative flex h-2.5 w-2.5 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span id="heroStatus" class="truncate">Open to Opportunities • Kota Tegal</span>
+        </div>
+
+        <div class="space-y-2.5 sm:space-y-3">
+          <p class="font-mono text-xs sm:text-sm uppercase tracking-widest text-sky-500 dark:text-sky-400">Halo, Saya
+          </p>
+          <h1 id="heroName"
+            class="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+            Farrelio Akbar
+          </h1>
+          <div
+            class="min-h-[3rem] sm:min-h-[2.5rem] flex items-center font-mono text-sm sm:text-xl lg:text-2xl font-medium text-violet-600 dark:text-violet-300 leading-snug">
+            <span><span id="typingText"></span><span class="cursor-blink ml-0.5 text-sky-400">|</span></span>
+          </div>
+        </div>
+
+        <p id="heroBio"
+          class="text-slate-600 dark:text-slate-300 text-sm sm:text-lg leading-relaxed max-w-3xl justify-clean">
+          Mahasiswa S1 Sistem Informasi dengan pengalaman di bidang administrasi, data entry, pelayanan pelanggan, dan
+          operasional lapangan. Terbiasa bekerja dengan target, melakukan pengolahan data secara teliti, berkomunikasi
+          dengan masyarakat maupun pelanggan, serta mengikuti SOP dan instruksi kerja.
+        </p>
+
+        <div class="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-2">
+          <a href="#sertifikat"
+            class="px-5 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-semibold text-sm text-center shadow-lg shadow-sky-500/25 transition-all hover:-translate-y-0.5">
+            Lihat Sertifikat & Prestasi
+          </a>
+          <div class="grid grid-cols-2 sm:flex items-center gap-2.5 sm:gap-3">
+            <a href="#pengalaman"
+              class="px-4 sm:px-5 py-3 rounded-xl glass-card hover:border-sky-400/50 font-semibold text-xs sm:text-sm text-center text-slate-800 dark:text-slate-100 transition-all hover:-translate-y-0.5">
+              Riwayat Pengalaman
+            </a>
+            <button id="copyEmailHero" type="button"
+              class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl glass-card hover:border-emerald-400/50 font-mono text-xs sm:text-sm text-slate-700 dark:text-slate-200 transition-all">
+              <svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <span>Salin Email</span>
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2.5 sm:gap-5 pt-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono">
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span id="heroLocation">Jl. KH Dewantoro 52144, Kota Tegal</span>
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-violet-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+            <span>S1 Sistem Informasi — Universitas Harkat Negeri</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO GRID: TENTANG, WAKTU WIB & STATISTIK -->
+    <section id="tentang" class="space-y-6 reveal">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-sky-500 dark:text-sky-400">01 // Ringkasan Profil
+          </p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Tentang & Kualifikasi Diri</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Disiplin lapangan, ketelitian data, dan kerja
+          tim terukur.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+        <!-- Pendidikan & Ringkasan -->
+        <div class="md:col-span-7 glass-card spotlight-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between space-y-5">
+          <div class="space-y-3 relative z-10">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-sky-500/10 text-sky-500 dark:text-sky-300 text-xs font-mono">
+              <span>Pendidikan Saat Ini</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">S1 Sistem Informasi — Universitas Harkat Negeri
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed justify-clean">
+              Mahasiswa aktif <strong>Semester 3</strong> di Kota Tegal. Mengombinasikan pemahaman sistem informasi dan
+              pengolahan data dengan pengalaman nyata di lapangan—mulai dari pendataan sensus ekonomi berskala besar,
+              kepanitiaan olimpiade tingkat provinsi, klerikal pemilu, hingga pelayanan ritel dan distribusi.
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800 relative z-10">
+            <p class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">7 Kualifikasi Utama</p>
+            <div class="flex flex-wrap gap-2" id="qualificationsList">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Jam WIB Live + Target & Pencapaian -->
+        <div class="md:col-span-5 grid grid-cols-1 gap-4 sm:gap-5">
+          <div class="glass-card spotlight-card rounded-2xl p-5 sm:p-6 flex items-center justify-between gap-3">
+            <div class="relative z-10 min-w-0">
+              <p class="text-xs font-mono uppercase tracking-wider text-slate-400">Waktu Lokal • Kota Tegal</p>
+              <div id="wibClock"
+                class="text-2xl sm:text-4xl font-mono font-bold text-slate-900 dark:text-white mt-1 tracking-tight">
+                00:00:00</div>
+              <p id="wibDate" class="text-xs text-sky-500 dark:text-sky-400 font-medium mt-1">WIB (UTC+7)</p>
+            </div>
+            <div
+              class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 relative z-10 shrink-0">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 sm:gap-3">
+            <button type="button" onclick="openCertModal(2)"
+              class="glass-card spotlight-card rounded-2xl p-2.5 sm:p-4 text-center flex flex-col items-center justify-center hover:-translate-y-0.5 transition-all cursor-pointer">
+              <div
+                class="text-lg sm:text-2xl font-extrabold text-sky-500 dark:text-sky-400 font-mono whitespace-nowrap relative z-10">
+                800+</div>
+              <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 sm:mt-1.5 leading-snug relative z-10">
+                Data Responden BPS (1,5 Bln)</p>
+            </button>
+            <a href="#pengalaman"
+              class="glass-card spotlight-card rounded-2xl p-2.5 sm:p-4 text-center flex flex-col items-center justify-center hover:-translate-y-0.5 transition-all">
+              <div id="statExpCount"
+                class="text-lg sm:text-2xl font-extrabold text-violet-500 dark:text-violet-400 font-mono whitespace-nowrap relative z-10">
+                6</div>
+              <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 sm:mt-1.5 leading-snug relative z-10">
+                Pengalaman Kerja & Panitia</p>
+            </a>
+            <button type="button" onclick="openCertModal(1)"
+              class="glass-card spotlight-card rounded-2xl p-2.5 sm:p-4 text-center flex flex-col items-center justify-center hover:-translate-y-0.5 transition-all cursor-pointer">
+              <div
+                class="text-base sm:text-xl font-extrabold text-amber-500 dark:text-amber-400 font-mono whitespace-nowrap relative z-10">
+                Juara 2</div>
+              <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 sm:mt-1.5 leading-snug relative z-10">
+                Piala Kemenpora RI YOT VI</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERTIFIKAT & PENCAPAIAN (100% Sesuai Dokumen Asli, Tanpa Rekayasa Desain) -->
+    <section id="sertifikat" class="space-y-6 reveal">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-sky-500 dark:text-sky-400">02 // Bukti Kompetensi &
+            Prestasi</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Sertifikat & Pencapaian Resmi
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Ditampilkan sesuai dokumen asli tanpa perubahan
+          bentuk.</p>
+      </div>
+
+      <div id="certificatesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- KEAHLIAN & TOOLS -->
+    <section id="keahlian" class="space-y-6 reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-sky-500 dark:text-sky-400">03 // Kompetensi</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Keahlian & Perangkat Kerja</h2>
+        </div>
+
+        <div class="flex flex-wrap gap-2" id="skillFilters">
+          <button data-filter="all" type="button"
+            class="skill-filter-btn active px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-semibold bg-sky-500 text-white shadow-sm">Semua</button>
+          <button data-filter="data" type="button"
+            class="skill-filter-btn px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-semibold glass-card text-slate-600 dark:text-slate-300 hover:border-sky-400/50">Data
+            & Administrasi</button>
+          <button data-filter="ops" type="button"
+            class="skill-filter-btn px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-semibold glass-card text-slate-600 dark:text-slate-300 hover:border-sky-400/50">Operasional
+            & Layanan</button>
+          <button data-filter="tech" type="button"
+            class="skill-filter-btn px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-semibold glass-card text-slate-600 dark:text-slate-300 hover:border-sky-400/50">Sistem
+            Informasi</button>
+        </div>
+      </div>
+
+      <div id="skillsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- TIMELINE PENGALAMAN KERJA & KEPANITIAAN -->
+    <section id="pengalaman" class="space-y-6 reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-sky-500 dark:text-sky-400">04 // Rekam Jejak</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Pengalaman Kerja & Kepanitiaan
+          </h2>
+        </div>
+
+        <div class="flex flex-wrap gap-2" id="expFilters">
+          <button data-exp-filter="all" id="expFilterAll" type="button"
+            class="exp-filter-btn active px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-semibold bg-sky-500 text-white shadow-sm">Semua
+            (6)</button>
+          <button data-exp-filter="event" type="button"
+            class="exp-filter-btn px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-semibold glass-card text-slate-600 dark:text-slate-300 hover:border-sky-400/50">Kepanitiaan
+            & Event</button>
+          <button data-exp-filter="data" type="button"
+            class="exp-filter-btn px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-semibold glass-card text-slate-600 dark:text-slate-300 hover:border-sky-400/50">Pendataan
+            & Administrasi</button>
+          <button data-exp-filter="field" type="button"
+            class="exp-filter-btn px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-semibold glass-card text-slate-600 dark:text-slate-300 hover:border-sky-400/50">Retail
+            & Distribusi</button>
+        </div>
+      </div>
+
+      <div id="experienceTimeline"
+        class="relative ml-2 sm:ml-0 pl-6 sm:pl-8 border-l-2 border-slate-200 dark:border-slate-800 space-y-5 sm:space-y-6">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="reveal">
+      <div class="glass-card rounded-3xl p-5 sm:p-10 border border-sky-500/25 relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-72 h-72 rounded-full bg-sky-500/10 blur-3xl pointer-events-none">
+        </div>
+        <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
+          <div class="lg:col-span-6 space-y-4">
+            <p class="font-mono text-xs uppercase tracking-widest text-sky-500 dark:text-sky-400">05 // Hubungi Saya</p>
+            <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight">Siap Berkontribusi dalam Tim &
+              Operasional Anda</h2>
+            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed justify-clean">
+              Terbuka untuk peluang kerja paruh waktu, magang Sistem Informasi, proyek pendataan/administrasi, maupun
+              kepanitiaan acara di wilayah Kota Tegal dan sekitarnya.
+            </p>
+
+            <div class="space-y-3 pt-2 text-sm">
+              <div
+                class="flex items-center justify-between gap-2.5 sm:gap-3 p-3 sm:p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/70 border border-slate-200/70 dark:border-slate-800">
+                <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                  <span class="w-9 h-9 rounded-lg bg-sky-500/15 text-sky-400 flex items-center justify-center shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                  </span>
+                  <span id="contactEmailText"
+                    class="font-mono text-xs sm:text-sm truncate text-slate-800 dark:text-slate-200">farrelganteng1499@gmail.com</span>
+                </div>
+                <button id="copyEmailContact" type="button"
+                  class="px-3 py-1.5 rounded-lg bg-sky-500/15 hover:bg-sky-500/25 text-sky-500 dark:text-sky-300 text-xs font-semibold shrink-0 transition-colors">
+                  Salin
+                </button>
+              </div>
+
+              <div
+                class="flex items-center justify-between gap-2.5 sm:gap-3 p-3 sm:p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/70 border border-slate-200/70 dark:border-slate-800">
+                <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                  <span
+                    class="w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                  </span>
+                  <span id="contactPhoneText"
+                    class="font-mono text-xs sm:text-sm truncate text-slate-800 dark:text-slate-200">08884144456</span>
+                </div>
+                <a id="waDirectLink" href="https://wa.me/628884144456" target="_blank" rel="noopener noreferrer"
+                  class="px-3 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-600 dark:text-emerald-300 text-xs font-semibold shrink-0 transition-colors">
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <form id="contactForm"
+            class="lg:col-span-6 space-y-4 bg-white/60 dark:bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-slate-200/70 dark:border-slate-800">
+            <div>
+              <label for="senderName"
+                class="block text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Nama
+                Anda / Instansi</label>
+              <input type="text" id="senderName" required placeholder="Contoh: HRD / Panitia Kegiatan"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm focus:outline-none focus:border-sky-500" />
+            </div>
+            <div>
+              <label for="senderSubject"
+                class="block text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Keperluan</label>
+              <input type="text" id="senderSubject" required placeholder="Tawaran Kerja / Magang / Kolaborasi Event"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm focus:outline-none focus:border-sky-500" />
+            </div>
+            <div>
+              <label for="senderMessage"
+                class="block text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Pesan
+                Singkat</label>
+              <textarea id="senderMessage" rows="3" required placeholder="Tuliskan detail singkat pesan Anda..."
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm focus:outline-none focus:border-sky-500"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-sky-500/20 transition-all">
+              Kirim Pesan via WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer
+    class="border-t border-slate-200/70 dark:border-slate-800/80 py-8 px-4 text-center text-xs text-slate-500 dark:text-slate-400 font-mono">
+    <p>© 2026 Farrelio Akbar • S1 Sistem Informasi — Universitas Harkat Negeri, Kota Tegal.</p>
+  </footer>
+
+  <!-- MODAL DETAIL SERTIFIKAT / PENCAPAIAN (Menampilkan Gambar Asli Utuh Tanpa Pemotongan) -->
+  <div id="certModal" role="dialog" aria-modal="true"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
+    <div id="certModalContent"
+      class="glass-card bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto p-5 sm:p-8 border border-slate-300 dark:border-slate-700 shadow-2xl relative">
+      <button id="closeCertModal" type="button" aria-label="Tutup Detail Sertifikat"
+        class="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 w-9 h-9 rounded-xl bg-slate-200/80 dark:bg-slate-800 hover:bg-rose-500/20 hover:text-rose-400 flex items-center justify-center transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <div id="certModalBody" class="space-y-4 sm:space-y-5"></div>
+    </div>
+  </div>
+
+  <!-- SLIDE-OVER EDITOR PANEL -->
+  <div id="editorDrawer" role="dialog" aria-modal="true" class="fixed inset-0 z-50 hidden">
+    <div id="editorBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <aside
+      class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-5 sm:p-6 overflow-y-auto shadow-2xl space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div>
+          <h3 class="font-bold text-lg text-slate-900 dark:text-white">Kustomisasi Portofolio</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Perubahan tersimpan otomatis di browser Anda.</p>
+        </div>
+        <button id="closeEditorBtn" type="button" aria-label="Tutup Editor" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-sm">
+        <div>
+          <label for="editName" class="block text-xs font-mono uppercase text-slate-400 mb-1">Nama Lengkap</label>
+          <input id="editName" type="text"
+            class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm" />
+        </div>
+        <div>
+          <label for="editStatus" class="block text-xs font-mono uppercase text-slate-400 mb-1">Badge Status</label>
+          <input id="editStatus" type="text"
+            class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm" />
+        </div>
+        <div>
+          <label for="editBio" class="block text-xs font-mono uppercase text-slate-400 mb-1">Bio Singkat</label>
+          <textarea id="editBio" rows="3"
+            class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm"></textarea>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="editEmail" class="block text-xs font-mono uppercase text-slate-400 mb-1">Email</label>
+            <input id="editEmail" type="email"
+              class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm" />
+          </div>
+          <div>
+            <label for="editPhone" class="block text-xs font-mono uppercase text-slate-400 mb-1">No. WhatsApp</label>
+            <input id="editPhone" type="text"
+              class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm" />
+          </div>
+        </div>
+        <div>
+          <label for="editLocation" class="block text-xs font-mono uppercase text-slate-400 mb-1">Alamat Domisili</label>
+          <input id="editLocation" type="text"
+            class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm" />
+        </div>
+        <button id="saveProfileBtn" type="button"
+          class="w-full py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold">
+          Simpan Perubahan Profil
+        </button>
+      </div>
+
+      <div class="border-t border-slate-200 dark:border-slate-800 pt-5 space-y-3 text-sm">
+        <h4 class="font-bold text-slate-900 dark:text-white">Tambah Pengalaman Baru</h4>
+        <input id="newExpRole" type="text" placeholder="Posisi / Peran (mis. Panitia Seminar)"
+          class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm" />
+        <input id="newExpOrg" type="text" placeholder="Instansi / Penyelenggara"
+          class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <input id="newExpPeriod" type="text" placeholder="Periode (Des 2026)"
+            class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm" />
+          <select id="newExpCat"
+            class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm">
+            <option value="event">Kepanitiaan & Event</option>
+            <option value="data">Pendataan & Admin</option>
+            <option value="field">Retail & Distribusi</option>
+          </select>
+        </div>
+        <textarea id="newExpDesc" rows="2" placeholder="Deskripsi tugas utama..."
+          class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-base sm:text-sm"></textarea>
+        <button id="addExpBtn" type="button"
+          class="w-full py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold">
+          + Tambahkan ke Timeline
+        </button>
+      </div>
+
+      <div class="border-t border-slate-200 dark:border-slate-800 pt-4">
+        <button id="resetDataBtn" type="button"
+          class="w-full py-2.5 rounded-xl border border-rose-500/40 text-rose-500 hover:bg-rose-500/10 text-xs font-mono">
+          Reset ke Data Awal CV
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast"
+    class="fixed bottom-4 inset-x-4 sm:inset-x-auto sm:bottom-6 sm:right-6 z-50 translate-y-24 opacity-0 pointer-events-none transition-all duration-300 glass-card bg-slate-900/95 text-white px-4 py-3 rounded-xl border border-sky-500/40 shadow-xl flex items-center gap-2.5 text-xs sm:text-sm font-medium">
+    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0"></span>
+    <span id="toastMsg" class="truncate">Berhasil disalin!</span>
+  </div>
+
+  <script>
+    const ORIGINAL_KMSI_IMAGE = "./assets/sertifikat-kmsi-2026.jpg";
+    const ORIGINAL_KARATE_IMAGE = "./assets/piagam-karate-yot.jpg";
+    const ORIGINAL_BPS_IMAGE = "./assets/piagam-bps-se2026.jpg";
+
+    const STORAGE_KEY = "farrelio_portfolio_v8";
+
+    const DEFAULT_DATA = {
+      name: "Farrelio Akbar",
+      status: "Open to Opportunities • Kota Tegal",
+      bio: "Mahasiswa S1 Sistem Informasi dengan pengalaman di bidang administrasi, data entry, pelayanan pelanggan, dan operasional lapangan. Terbiasa bekerja dengan target, melakukan pengolahan data secara teliti, berkomunikasi dengan masyarakat maupun pelanggan, serta mengikuti SOP dan instruksi kerja. Cepat beradaptasi, disiplin, bertanggung jawab, dan mampu bekerja secara individu maupun tim.",
+      email: "farrelganteng1499@gmail.com",
+      phone: "08884144456",
+      location: "Jl. KH Dewantoro 52144, Kota Tegal",
+      qualifications: [
+        "Komunikasi",
+        "Teamwork",
+        "Time Management",
+        "Problem Solving",
+        "Adaptasi",
+        "Disiplin",
+        "Bertanggung Jawab"
+      ],
+      skills: [
+        { name: "Microsoft Excel", category: "data", level: "Rekapitulasi & Pengolahan Data", badge: "Data" },
+        { name: "Microsoft Word", category: "data", level: "Laporan, Surat & Berita Acara", badge: "Admin" },
+        { name: "Data Entry", category: "data", level: "Input Cepat & Akurasi Tinggi", badge: "Data" },
+        { name: "Administrasi & Dokumentasi", category: "data", level: "Arsip, Verifikasi & Serah Terima", badge: "Admin" },
+        { name: "Pengolahan Data Dasar", category: "data", level: "Validasi & Pengecekan Berkas", badge: "Data" },
+        { name: "Customer Service", category: "ops", level: "Komunikasi Persuasif & Ramah", badge: "Layanan" },
+        { name: "Bekerja dengan Target", category: "ops", level: "800+ Data Sensus dalam 1,5 Bulan", badge: "Target" },
+        { name: "Traffic Lane & Lapangan", category: "ops", level: "Manajemen Alur Peserta & Rute", badge: "Lapangan" },
+        { name: "Sistem Informasi & Database", category: "tech", level: "MySQL, Relasi Data & Pemodelan", badge: "S1 SI" },
+        { name: "Pemrograman Dasar", category: "tech", level: "Java, Python & Web (HTML/CSS/JS)", badge: "S1 SI" }
+      ],
+      experiences: [
+        {
+          role: "Panitia Olimpiade KMSI 2026 (Divisi Traffic Lane)",
+          org: "Aquina Education & Yayasan Intan Mutia — Universitas Harkat Negeri",
+          period: "Nov 2026",
+          category: "event",
+          highlight: "Tingkat Provinsi Jawa Tengah",
+          bullets: [
+            "Bertugas pada divisi Traffic Lane dalam Kompetisi Matematika, Sains, dan Inggris (KMSI) Tingkat Provinsi Jawa Tengah pada Minggu, 8 November 2026 di Universitas Harkat Negeri.",
+            "Mengatur alur pergerakan peserta, pengantar, dan alur masuk-keluar ruang ujian agar berjalan tertib, aman, dan tepat waktu.",
+            "Berkoordinasi aktif antar-divisi kepanitiaan untuk menjaga kelancaran operasional acara berskala provinsi."
+          ]
+        },
+        {
+          role: "Mitra Sensus Ekonomi 2026",
+          org: "Badan Pusat Statistik (BPS) Kota Tegal",
+          period: "Jun 2026 - Sep 2026",
+          category: "data",
+          highlight: "800+ Data Responden (1,5 Bulan)",
+          bullets: [
+            "Melakukan kunjungan dan wawancara secara langsung dengan pelaku usaha untuk memperoleh data ekonomi yang dibutuhkan sesuai SOP BPS.",
+            "Berkomunikasi secara langsung dengan berbagai karakter responden sehingga membutuhkan kemampuan komunikasi dan pendekatan yang baik.",
+            "Mengatur waktu dan rute pendataan agar target pekerjaan dapat diselesaikan secara efektif.",
+            "Berhasil menyelesaikan sekitar 800 data responden dalam waktu 1,5 bulan, termasuk menjadi salah satu petugas dengan performa penyelesaian yang cepat."
+          ]
+        },
+        {
+          role: "Sales Promotion Boy - Event Ramadan",
+          org: "Matahari Department Store Tegal, Kota Tegal",
+          period: "Feb 2026 - Mar 2026",
+          category: "field",
+          highlight: "Retail & Pelayanan Pelanggan",
+          bullets: [
+            "Melayani pelanggan dan memberikan informasi produk secara ramah dan persuasif.",
+            "Membantu menjaga kerapian display serta mendukung operasional dan pencapaian target penjualan toko selama periode Event Ramadan."
+          ]
+        },
+        {
+          role: "Kurir Distribusi Program Pemerintah",
+          org: "Program Bantuan Pemerintah",
+          period: "Jan 2026",
+          category: "field",
+          highlight: "Logistik & Berita Acara",
+          bullets: [
+            "Mendistribusikan bantuan perangkat laptop kepada penerima manfaat secara aman dan tepat waktu.",
+            "Memastikan pengecekan unit, proses serah terima barang, berita acara, dan administrasi terdokumentasi dengan lengkap."
+          ]
+        },
+        {
+          role: "Staf Klerikal - Data Entry Pemilu",
+          org: "Kepanitiaan Pemilihan Umum",
+          period: "Agt 2024 - Des 2024",
+          category: "data",
+          highlight: "Rekapitulasi Data Surat Suara",
+          bullets: [
+            "Melakukan input dan rekapitulasi data surat suara secara teliti dan sistematis.",
+            "Melakukan pengecekan ulang keakuratan data dan menyelesaikan pekerjaan sesuai target serta batas waktu yang ditetapkan."
+          ]
+        },
+        {
+          role: "Freelance Staff",
+          org: "PT Paragon Technology and Innovation",
+          period: "Mei 2024 - Jun 2024",
+          category: "event",
+          highlight: "Operasional & Promosi",
+          bullets: [
+            "Mendukung kegiatan operasional lapangan dan promosi produk perusahaan.",
+            "Membantu pelaksanaan pekerjaan sesuai arahan tim dan cepat beradaptasi dengan lingkungan kerja baru."
+          ]
+        }
+      ],
+      certificates: [
+        {
+          id: "kmsi-2026",
+          type: "Sertifikat Asli",
+          title: "Panitia Olimpiade KMSI 2026 — Traffic Lane",
+          issuer: "Aquina Education & Yayasan Intan Mutia",
+          date: "8 November 2026",
+          badgeColor: "sky",
+          imageData: ORIGINAL_KMSI_IMAGE,
+          summary: "Sertifikat Partisipasi sebagai Panitia Kompetisi Matematika, Sains, dan Inggris (KMSI) Tingkat Provinsi Jawa Tengah pada Minggu, 8 November 2026 di Universitas Harkat Negeri."
+        },
+        {
+          id: "karate-yot",
+          type: "Piagam Prestasi Asli",
+          title: "Juara 2 Kata Perorangan Mahasiswa Putra",
+          issuer: "International Karate Championship Yogyakarta Open Tournament VI — Kemenpora RI Cup",
+          date: "28–30 Agustus 2026",
+          badgeColor: "amber",
+          imageData: ORIGINAL_KARATE_IMAGE,
+          summary: "Piagam Prestasi Nomor 03/REK/PB.FORKI-SEKJEN/I/2026 sebagai Juara 2 Kata Perorangan Mahasiswa Putra pada Kejuaraan International Karate Championship Yogyakarta Open Tournament VI \"Kemenpora RI Cup\" tanggal 28–30 Agustus 2026 di GOR Universitas Negeri Yogyakarta."
+        },
+        {
+          id: "bps-se2026",
+          type: "Piagam Penghargaan Asli",
+          title: "Petugas Lapangan Sensus Ekonomi 2026",
+          issuer: "Badan Pusat Statistik (BPS) Kota Tegal",
+          date: "15 Juni – 31 Agustus 2026",
+          badgeColor: "emerald",
+          imageData: ORIGINAL_BPS_IMAGE,
+          summary: "Piagam Penghargaan dari Badan Pusat Statistik (BPS) Kota Tegal (terbit 16 September 2026) sebagai Petugas Lapangan Sensus Ekonomi 2026 pada 15 Juni s.d. 31 Agustus 2026 dengan capaian sekitar 800 data responden dalam 1,5 bulan."
+        }
+      ]
+    };
+
+    function cloneData(obj) {
+      if (typeof structuredClone === "function") {
+        return structuredClone(obj);
+      }
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch (e) {}
+      return cloneData(DEFAULT_DATA);
+    }
+
+    let state = loadState();
+    let toastTimer = null;
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {
+        showToast("Penyimpanan browser terbatas, perubahan aktif selama sesi ini.");
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toastMsg").textContent = msg;
+      toast.classList.remove("translate-y-24", "opacity-0");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add("translate-y-24", "opacity-0");
+      }, 2600);
+    }
+
+    // Mobile Menu Toggle
+    const mainNav = document.getElementById("mainNav");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add("hidden");
+      mobileMenuBtn.setAttribute("aria-expanded", "false");
+    }
+
+    mobileMenuBtn.addEventListener("click", () => {
+      const isHidden = mobileMenu.classList.toggle("hidden");
+      mobileMenuBtn.setAttribute("aria-expanded", String(!isHidden));
+    });
+
+    document.querySelectorAll(".mobile-nav-link").forEach(link => {
+      link.addEventListener("click", closeMobileMenu);
+    });
+
+    document.addEventListener("click", e => {
+      if (!mainNav.contains(e.target) && !mobileMenu.classList.contains("hidden")) {
+        closeMobileMenu();
+      }
+    });
+
+    // Typing Effect
+    const roles = [
+      "Mahasiswa S1 Sistem Informasi",
+      "Mitra BPS Sensus Ekonomi 2026",
+      "Juara 2 Piala Kemenpora RI YOT VI",
+      "Data Entry, Administrasi & Traffic Lane"
+    ];
+    let roleIdx = 0, charIdx = 0, deleting = false;
+    function typeLoop() {
+      const el = document.getElementById("typingText");
+      const current = roles[roleIdx];
+      if (!deleting) {
+        el.textContent = current.slice(0, ++charIdx);
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1800);
+          return;
+        }
+      } else {
+        el.textContent = current.slice(0, --charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+        }
+      }
+      setTimeout(typeLoop, deleting ? 38 : 68);
+    }
+    typeLoop();
+
+    // Live WIB Clock
+    function updateClock() {
+      const now = new Date();
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const wib = new Date(utc + 3600000 * 7);
+      const hh = String(wib.getHours()).padStart(2, "0");
+      const mm = String(wib.getMinutes()).padStart(2, "0");
+      const ss = String(wib.getSeconds()).padStart(2, "0");
+      document.getElementById("wibClock").textContent = `${hh}:${mm}:${ss}`;
+      const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+      const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agt", "Sep", "Okt", "Nov", "Des"];
+      document.getElementById("wibDate").textContent = `${days[wib.getDay()]}, ${wib.getDate()} ${months[wib.getMonth()]} ${wib.getFullYear()} • WIB`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Render Functions
+    function renderProfile() {
+      document.getElementById("heroName").textContent = state.name;
+      document.getElementById("heroStatus").textContent = state.status;
+      document.getElementById("heroBio").textContent = state.bio;
+      document.getElementById("heroLocation").textContent = state.location;
+      document.getElementById("contactEmailText").textContent = state.email;
+      document.getElementById("contactPhoneText").textContent = state.phone;
+      const waNum = state.phone.replace(/^0/, "62").replace(/[^0-9]/g, "");
+      document.getElementById("waDirectLink").href = `https://wa.me/${waNum}`;
+
+      const qContainer = document.getElementById("qualificationsList");
+      qContainer.innerHTML = state.qualifications.map(q => `
+        <span class="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80">
+          ✓ ${escapeHtml(q)}
+        </span>
+      `).join("");
+    }
+
+    function renderSkills(filter = "all") {
+      const grid = document.getElementById("skillsGrid");
+      const filtered = filter === "all" ? state.skills : state.skills.filter(s => s.category === filter);
+      grid.innerHTML = filtered.map(skill => `
+        <div class="glass-card spotlight-card rounded-2xl p-4 flex flex-col justify-between gap-3">
+          <div class="flex items-start justify-between gap-2 relative z-10">
+            <h3 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">${escapeHtml(skill.name)}</h3>
+            <span class="px-2 py-0.5 rounded-md text-[10px] font-mono bg-sky-500/15 text-sky-600 dark:text-sky-300 border border-sky-500/25 shrink-0">${escapeHtml(skill.badge)}</span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 relative z-10">${escapeHtml(skill.level)}</p>
+        </div>
+      `).join("");
+      attachSpotlight();
+    }
+
+    function renderExperiences(filter = "all") {
+      const container = document.getElementById("experienceTimeline");
+      const totalExp = state.experiences.length;
+      const statEl = document.getElementById("statExpCount");
+      const filterAllEl = document.getElementById("expFilterAll");
+      if (statEl) statEl.textContent = String(totalExp);
+      if (filterAllEl) filterAllEl.textContent = `Semua (${totalExp})`;
+
+      const filtered = filter === "all" ? state.experiences : state.experiences.filter(e => e.category === filter);
+      container.innerHTML = filtered.map((exp, idx) => `
+        <div class="relative group">
+          <span class="absolute -left-[33px] sm:-left-[41px] top-5 w-4 h-4 rounded-full ${idx === 0 ? 'bg-sky-500 ring-4 ring-sky-500/25' : 'bg-slate-400 dark:bg-slate-600 group-hover:bg-sky-400'} transition-colors"></span>
+          <div class="glass-card spotlight-card rounded-2xl p-4 sm:p-6 space-y-3">
+            <div class="flex flex-wrap items-start justify-between gap-2 relative z-10">
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">${escapeHtml(exp.role)}</h3>
+                  ${exp.highlight ? `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-violet-500/15 text-violet-600 dark:text-violet-300 border border-violet-500/30">${escapeHtml(exp.highlight)}</span>` : ""}
+                </div>
+                <p class="text-xs sm:text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">${escapeHtml(exp.org)}</p>
+              </div>
+              <span class="px-3 py-1 rounded-xl font-mono text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700/70 shrink-0">
+                ${escapeHtml(exp.period)}
+              </span>
+            </div>
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc pl-4 relative z-10 leading-relaxed">
+              ${exp.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join("")}
+            </ul>
+          </div>
+        </div>
+      `).join("");
+      attachSpotlight();
+    }
+
+    function renderCertificates() {
+      const grid = document.getElementById("certificatesGrid");
+      const badgeStyles = {
+        sky: "from-sky-500/20 to-indigo-500/10 border-sky-500/30 text-sky-600 dark:text-sky-300",
+        amber: "from-amber-500/20 to-orange-500/10 border-amber-500/30 text-amber-600 dark:text-amber-300",
+        emerald: "from-emerald-500/20 to-teal-500/10 border-emerald-500/30 text-emerald-600 dark:text-emerald-300"
+      };
+
+      grid.innerHTML = state.certificates.map((cert, index) => `
+        <button type="button" onclick="openCertModal(${index})" class="text-left glass-card spotlight-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between gap-4 hover:-translate-y-1 transition-all group">
+          <div class="space-y-3.5 relative z-10 w-full">
+            ${cert.imageData ? `
+              <!-- Original Certificate Photo Rendered in Exact Original Aspect Ratio (No Cropping, No Alterations) -->
+              <div class="w-full rounded-xl overflow-hidden border border-slate-300/40 dark:border-slate-700/60 bg-slate-950/60 flex items-center justify-center">
+                <img src="${cert.imageData}" alt="${escapeHtml(cert.title)}" loading="lazy" decoding="async" class="w-full h-auto object-contain block" />
+              </div>
+            ` : `
+              <div class="w-full rounded-xl p-4 border border-dashed border-slate-300 dark:border-slate-700 bg-slate-100/60 dark:bg-slate-900/60 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-500 dark:text-sky-300 flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs font-semibold text-slate-800 dark:text-slate-200">Tercatat pada CV Resmi</p>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400">Klik untuk melihat detail atau melampirkan foto sertifikat asli</p>
+                </div>
+              </div>
+            `}
+
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono bg-gradient-to-r ${badgeStyles[cert.badgeColor] || badgeStyles.sky} border">
+                ${escapeHtml(cert.type)}
+              </span>
+              <span class="font-mono text-xs text-slate-400">${escapeHtml(cert.date)}</span>
+            </div>
+
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-400 transition-colors">${escapeHtml(cert.title)}</h3>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400">${escapeHtml(cert.issuer)}</p>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed justify-clean">${escapeHtml(cert.summary)}</p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between text-xs font-semibold text-sky-500 dark:text-sky-400 relative z-10 w-full">
+            <span>${cert.imageData ? "Perbesar Sertifikat Asli" : "Lihat Detail & Lampirkan Foto Asli"}</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+        </button>
+      `).join("");
+      attachSpotlight();
+    }
+
+    const certModal = document.getElementById("certModal");
+    function closeCertModalFn() {
+      certModal.classList.add("hidden");
+      certModal.classList.remove("flex");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    window.openCertModal = function (index) {
+      const cert = state.certificates[index];
+      if (!cert) return;
+      const body = document.getElementById("certModalBody");
+
+      body.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center gap-2 pr-10">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-mono bg-sky-500/15 text-sky-500 dark:text-sky-300 border border-sky-500/30">${escapeHtml(cert.type)} • ${escapeHtml(cert.date)}</span>
+          </div>
+          <h3 class="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white pr-8">${escapeHtml(cert.title)}</h3>
+          <p class="text-xs sm:text-sm font-semibold text-sky-600 dark:text-sky-400">${escapeHtml(cert.issuer)}</p>
+
+          ${cert.imageData ? `
+            <div class="rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-700 bg-slate-950 flex items-center justify-center">
+              <img src="${cert.imageData}" alt="${escapeHtml(cert.title)}" class="w-full h-auto max-h-[68vh] object-contain mx-auto block" />
+            </div>
+          ` : `
+            <div class="p-4 sm:p-5 rounded-2xl bg-slate-100 dark:bg-slate-800/80 text-sm text-slate-700 dark:text-slate-200 leading-relaxed justify-clean">
+              ${escapeHtml(cert.summary)}
+            </div>
+          `}
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-200/70 dark:border-slate-800">
+            <label class="cursor-pointer inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 text-sky-600 dark:text-sky-300 border border-sky-500/30 text-xs font-semibold transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>${cert.imageData ? "Ganti Foto Sertifikat Asli" : "Unggah Foto Sertifikat Asli"}</span>
+              <input type="file" accept="image/*" class="hidden" onchange="uploadCertImage(event, ${index})" />
+            </label>
+            ${cert.imageData && !["kmsi-2026", "karate-yot", "bps-se2026"].includes(cert.id) ? `
+              <button type="button" onclick="removeCertImage(${index})" class="px-3 py-2 rounded-xl text-xs font-mono text-rose-500 hover:bg-rose-500/10">
+                Hapus Foto Lampiran
+              </button>
+            ` : ""}
+          </div>
+        </div>
+      `;
+
+      certModal.classList.remove("hidden");
+      certModal.classList.add("flex");
+      document.body.classList.add("overflow-hidden");
+    };
+
+    window.uploadCertImage = function (event, index) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        state.certificates[index].imageData = e.target.result;
+        state.certificates[index].type = "Sertifikat Asli";
+        saveState();
+        renderCertificates();
+        openCertModal(index);
+        showToast("Foto sertifikat asli berhasil ditampilkan!");
+      };
+      reader.readAsDataURL(file);
+    };
+
+    window.removeCertImage = function (index) {
+      state.certificates[index].imageData = null;
+      saveState();
+      renderCertificates();
+      openCertModal(index);
+      showToast("Lampiran foto dihapus.");
+    };
+
+    document.getElementById("closeCertModal").addEventListener("click", closeCertModalFn);
+    certModal.addEventListener("click", e => {
+      if (e.target === certModal) closeCertModalFn();
+    });
+
+    // Spotlight Mouse Tracker (Desktop / Fine Pointer Only)
+    const hasFinePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
+    function attachSpotlight() {
+      if (!hasFinePointer) return;
+      document.querySelectorAll(".spotlight-card").forEach(card => {
+        card.onmousemove = e => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+          card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+        };
+      });
+    }
+
+    // Filter Buttons
+    document.querySelectorAll(".skill-filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".skill-filter-btn").forEach(b => {
+          b.classList.remove("bg-sky-500", "text-white");
+          b.classList.add("glass-card", "text-slate-600", "dark:text-slate-300");
+        });
+        btn.classList.add("bg-sky-500", "text-white");
+        btn.classList.remove("glass-card", "text-slate-600", "dark:text-slate-300");
+        renderSkills(btn.dataset.filter);
+      });
+    });
+
+    document.querySelectorAll(".exp-filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".exp-filter-btn").forEach(b => {
+          b.classList.remove("bg-sky-500", "text-white");
+          b.classList.add("glass-card", "text-slate-600", "dark:text-slate-300");
+        });
+        btn.classList.add("bg-sky-500", "text-white");
+        btn.classList.remove("glass-card", "text-slate-600", "dark:text-slate-300");
+        renderExperiences(btn.dataset.expFilter);
+      });
+    });
+
+    // Copy Email (Works on HTTPS, HTTP Wi-Fi lokal, and file://)
+    function copyEmail() {
+      const text = state.email;
+      const onSuccess = () => showToast(`Email disalin: ${text}`);
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallbackCopy(text, onSuccess));
+      } else {
+        fallbackCopy(text, onSuccess);
+      }
+    }
+
+    function fallbackCopy(text, onSuccess) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        onSuccess();
+      } catch (e) {
+        showToast(`Email: ${text}`);
+      }
+      document.body.removeChild(ta);
+    }
+
+    document.getElementById("copyEmailHero").addEventListener("click", copyEmail);
+    document.getElementById("copyEmailContact").addEventListener("click", copyEmail);
+
+    // Contact Form -> WhatsApp
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const sender = document.getElementById("senderName").value.trim();
+      const subj = document.getElementById("senderSubject").value.trim();
+      const msg = document.getElementById("senderMessage").value.trim();
+      const waNum = state.phone.replace(/^0/, "62").replace(/[^0-9]/g, "");
+      const text = encodeURIComponent(`Halo ${state.name}, saya ${sender}.\nKeperluan: ${subj}\n\n${msg}`);
+      window.open(`https://wa.me/${waNum}?text=${text}`, "_blank", "noopener");
+    });
+
+    // Theme Toggle (with persistence)
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      try {
+        localStorage.setItem("farrelio_theme", isDark ? "dark" : "light");
+      } catch (e) {}
+    });
+
+    // Slide-Over Editor Logic
+    const drawer = document.getElementById("editorDrawer");
+    document.getElementById("openEditorBtn").addEventListener("click", () => {
+      closeMobileMenu();
+      document.getElementById("editName").value = state.name;
+      document.getElementById("editStatus").value = state.status;
+      document.getElementById("editBio").value = state.bio;
+      document.getElementById("editEmail").value = state.email;
+      document.getElementById("editPhone").value = state.phone;
+      document.getElementById("editLocation").value = state.location;
+      drawer.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+    });
+
+    function closeDrawer() {
+      drawer.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    document.getElementById("closeEditorBtn").addEventListener("click", closeDrawer);
+    document.getElementById("editorBackdrop").addEventListener("click", closeDrawer);
+
+    // Close modals with Escape key
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        if (!certModal.classList.contains("hidden")) closeCertModalFn();
+        if (!drawer.classList.contains("hidden")) closeDrawer();
+        if (!mobileMenu.classList.contains("hidden")) closeMobileMenu();
+      }
+    });
+
+    document.getElementById("saveProfileBtn").addEventListener("click", () => {
+      state.name = document.getElementById("editName").value.trim() || state.name;
+      state.status = document.getElementById("editStatus").value.trim() || state.status;
+      state.bio = document.getElementById("editBio").value.trim() || state.bio;
+      state.email = document.getElementById("editEmail").value.trim() || state.email;
+      state.phone = document.getElementById("editPhone").value.trim() || state.phone;
+      state.location = document.getElementById("editLocation").value.trim() || state.location;
+      saveState();
+      renderProfile();
+      renderCertificates();
+      closeDrawer();
+      showToast("Profil berhasil diperbarui!");
+    });
+
+    document.getElementById("addExpBtn").addEventListener("click", () => {
+      const role = document.getElementById("newExpRole").value.trim();
+      const org = document.getElementById("newExpOrg").value.trim();
+      const period = document.getElementById("newExpPeriod").value.trim() || "2026";
+      const category = document.getElementById("newExpCat").value;
+      const desc = document.getElementById("newExpDesc").value.trim();
+      if (!role || !org || !desc) {
+        showToast("Lengkapi posisi, instansi, dan deskripsi!");
+        return;
+      }
+      state.experiences.unshift({
+        role,
+        org,
+        period,
+        category,
+        highlight: "Baru Ditambahkan",
+        bullets: [desc]
+      });
+      saveState();
+      renderExperiences();
+      document.getElementById("newExpRole").value = "";
+      document.getElementById("newExpOrg").value = "";
+      document.getElementById("newExpPeriod").value = "";
+      document.getElementById("newExpDesc").value = "";
+      closeDrawer();
+      showToast("Pengalaman baru ditambahkan!");
+    });
+
+    document.getElementById("resetDataBtn").addEventListener("click", () => {
+      state = cloneData(DEFAULT_DATA);
+      saveState();
+      renderProfile();
+      renderSkills();
+      renderExperiences();
+      renderCertificates();
+      closeDrawer();
+      showToast("Data dikembalikan ke versi CV asli.");
+    });
+
+    // Scroll Reveal Observer (with fallback)
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.05 });
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+    }
+
+    // Initial Render
+    renderProfile();
+    renderSkills();
+    renderExperiences();
+    renderCertificates();
+  </script>
+</body>
+
+</html>
